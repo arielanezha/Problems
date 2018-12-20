@@ -1,0 +1,17 @@
+ var function Max_Sum_Sequence(arr,n){ //function declaration
+
+    var answer=Math.min.apply(null,arr);// set the answer to the lowest value in the array,so that it would be updated with the sum values when compared to them
+    for(var seq_size=1; seq_size<=n; seq_size++){//a loop to set the sizes of the sequences that can be built
+        for(var start_index=0; start_index<n; start_index++){//a loop to set the start indexes of the sequences
+            if(start_index+seq_size>n)//condition to make sure the sequence length doesn't exceedthe array bounds
+            break;
+            var sum=0;//declares & initialises the sum
+            for(var i=start_index; i<(start_index+seq_size); i++) // a loop to find the sum of each sequence
+            sum+=arr[i];    //updates the variable sum
+            answer=Math.max(answer,sum); //compares the sum of the current sequence to the current value of answer,and updates the answer with the maximum of them
+            
+        }
+    }
+console.log("The maximum sum is :" +answer); //consoles the sum of the sequence
+console.log("The sequence starts at:" +start_index+"and ends at"+(start_index+seq_size);//consoles the start and end indexes
+}
